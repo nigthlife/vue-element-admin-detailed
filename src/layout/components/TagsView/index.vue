@@ -1,6 +1,8 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
+    <!-- 滚动窗格 -->
     <scroll-pane ref="scrollPane" class="tags-view-wrapper" @scroll="handleScroll">
+      <!-- 设置跳转路由 当前页面跳转 -->
       <router-link
         v-for="tag in visitedViews"
         ref="tag"
@@ -16,23 +18,29 @@
         <span v-if="!isAffix(tag)" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
       </router-link>
     </scroll-pane>
+    <!-- 滚动窗格列表右键点击效果 默认隐藏-->
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
+      <!-- 刷新当前页面 -->
       <li @click="refreshSelectedTag(selectedTag)">Refresh</li>
+      <!-- 关闭当前页面 -->
       <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">Close</li>
+      <!-- 关闭出当前以外所以页面 -->
       <li @click="closeOthersTags">Close Others</li>
+      <!-- 关闭所以页面 -->
       <li @click="closeAllTags(selectedTag)">Close All</li>
     </ul>
   </div>
 </template>
 
 <script>
-import ScrollPane from './ScrollPane'
+import ScrollPane from './ScrollPane' // 引入滚动窗格组件
 import path from 'path'
 
 export default {
   components: { ScrollPane },
   data() {
     return {
+      // 右键操作单个窗格列表可见性
       visible: false,
       top: 0,
       left: 0,
@@ -198,11 +206,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// 标签视图容器
 .tags-view-container {
   height: 34px;
   width: 100%;
   background: #fff;
   border-bottom: 1px solid #d8dce5;
+  // 向 div 元素添加阴影
+  // box-shadow:
+    // h-shadow：必需的。水平阴影的位置。允许负值
+    // v-shadow：必需的。垂直阴影的位置。允许负值
+    // blur：可选。模糊距离
+    // spread：可选。阴影的大小
+    // color：可选。阴影的颜色
+    // inset：可选。从外层的阴影（开始时）改变阴影内侧阴影
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04);
   .tags-view-wrapper {
     .tags-view-item {
@@ -241,6 +258,7 @@ export default {
       }
     }
   }
+  // 上下文菜单样式
   .contextmenu {
     margin: 0;
     background: #fff;

@@ -1,5 +1,5 @@
 const Mock = require('mockjs')
-const { param2Obj } = require('./utils') //解析地址栏参数的函数
+const { param2Obj } = require('./utils') // 解析地址栏参数的函数
 
 const user = require('./user')
 const role = require('./role')
@@ -49,7 +49,7 @@ function mockXHR() {
     }
   }
 
-// 批量注册路由事件
+  // 批量注册路由事件
   for (const i of mocks) {
     Mock.mock(new RegExp(i.url), i.type || 'get', XHR2ExpressReqWrap(i.response))
   }

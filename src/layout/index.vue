@@ -32,21 +32,21 @@ import { mapState } from 'vuex'
 export default {
   name: 'Layout',
   components: {
-    AppMain,    // 主面板
-    Navbar,     // 导航栏
+    AppMain, // 主面板
+    Navbar, // 导航栏
     RightPanel, // 右侧设置面板
-    Settings,   // 右侧设置面板组件
-    Sidebar,    // 侧边栏
-    TagsView    // 历史记录窗口
+    Settings, // 右侧设置面板组件
+    Sidebar, // 侧边栏
+    TagsView // 历史记录窗口
   },
   mixins: [ResizeMixin],
   computed: {
     ...mapState({
-      sidebar: state => state.app.sidebar,                // 侧边栏状态
-      device: state => state.app.device,                  // 当前设备
+      sidebar: state => state.app.sidebar, // 侧边栏状态
+      device: state => state.app.device, // 当前设备
       showSettings: state => state.settings.showSettings, // 显示设置面板
-      needTagsView: state => state.settings.tagsView,     // 窗口记录 缓存组件
-      fixedHeader: state => state.settings.fixedHeader    // 固定标题
+      needTagsView: state => state.settings.tagsView, // 窗口记录 缓存组件
+      fixedHeader: state => state.settings.fixedHeader // 固定标题
     }),
     classObj() {
       return {

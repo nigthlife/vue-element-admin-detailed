@@ -56,7 +56,6 @@ const actions = {
 
       // 判断角色中是否包含管理员角色
       if (roles.includes('admin')) {
-
         accessedRoutes = asyncRoutes || []
       } else {
         // 通过过滤函数过滤路由

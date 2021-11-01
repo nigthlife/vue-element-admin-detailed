@@ -1,4 +1,5 @@
 <template>
+  <!-- 左侧隐藏显示侧边栏按钮 -->
   <div style="padding: 0 15px;" @click="toggleClick">
     <svg
       :class="{'is-active':isActive}"
@@ -17,12 +18,14 @@
 export default {
   name: 'Hamburger',
   props: {
+    // 控制是否活跃
     isActive: {
       type: Boolean,
       default: false
     }
   },
   methods: {
+    // 点击切换
     toggleClick() {
       this.$emit('toggleClick')
     }
