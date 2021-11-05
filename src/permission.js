@@ -4,7 +4,7 @@ import { Message } from 'element-ui'
 import NProgress from 'nprogress' // progress bar 进度条（内置函数）
 import 'nprogress/nprogress.css' // progress bar style 进度条样式
 import { getToken } from '@/utils/auth' // get token from cookie 获取cookie中获取token
-import getPageTitle from '@/utils/get-page-title'  // 获取页面的标题
+import getPageTitle from '@/utils/get-page-title' // 获取页面的标题
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration 页面顶部加载进度条配置
 
@@ -61,7 +61,7 @@ router.beforeEach(async(to, from, next) => {
     /* has no token*/
 
     if (whiteList.indexOf(to.path) !== -1) {
-      // in the free login whitelist, go directly
+      // in the free login whitelist, go directly 在免登录白名单，直接进入
       next()
     } else {
       // 其他没有访问权限的页面被重定向到登录页面。
@@ -71,6 +71,8 @@ router.beforeEach(async(to, from, next) => {
   }
 })
 
+// 后置守卫（hook）
+// 在离开当前路由前调用
 router.afterEach(() => {
   // 完成进度条
   NProgress.done()

@@ -21,15 +21,15 @@ for (let i = 0; i < count; i++) {
     timestamp: +Mock.Random.date('T'),
     // 生成姓
     author: '@first',
-     // 生成姓
+    // 生成姓
     reviewer: '@first',
     // 随机5-10个单词的title
     title: '@title(5, 10)',
     content_short: 'mock data',
     content: baseContent,
-    //60 到 100 的浮点数
+    // 60 到 100 的浮点数
     forecast: '@float(0, 100, 2, 2)',
-    //1 到 3 的整数
+    // 1 到 3 的整数
     importance: '@integer(1, 3)',
     'type|1': ['CN', 'US', 'JP', 'EU'],
     'status|1': ['published', 'draft'],

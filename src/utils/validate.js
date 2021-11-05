@@ -1,5 +1,6 @@
 /**
  * Created by PanJiaChen on 16/11/18.
+ * 定义验证规则
  */
 
 /**

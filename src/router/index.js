@@ -38,10 +38,15 @@ import nestedRouter from './modules/nested'
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
+/**
+ * 恒定路由表
+ * 所有权限通用路由表
+ */
 export const constantRoutes = [
   {
     path: '/redirect',
     component: Layout,
+    // 路由入口是否可见的开关
     hidden: true,
     children: [
       {
@@ -127,6 +132,10 @@ export const constantRoutes = [
 /**
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
+ */
+/**
+ * 异步挂载路由
+ * 动态根据权限加载路由表
  */
 export const asyncRoutes = [
   {
@@ -387,18 +396,22 @@ export const asyncRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ]
 
+// 创建路由
+// 实例化vue的时候只挂载constantRouterMap
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
 
+// 创建路由对象
 const router = createRouter()
 
+// 导出方法路由
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
   const newRouter = createRouter()
-  router.matcher = newRouter.matcher // reset router
+  router.matcher = newRouter.matcher // reset router 替换原有的路由，更改为默认的路由
 }
 
 export default router
