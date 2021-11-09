@@ -2,17 +2,23 @@
   <div class="app-container">
 
     <div>
+      <!-- 文件名称组件 -->
       <FilenameOption v-model="filename" />
+      <!-- 自动宽第组件 -->
       <AutoWidthOption v-model="autoWidth" />
+      <!-- 导出类型组件 -->
       <BookTypeOption v-model="bookType" />
+      <!-- 导出按钮 -->
       <el-button :loading="downloadLoading" style="margin:0 0 20px 20px;" type="primary" icon="el-icon-document" @click="handleDownload">
         Export Excel
       </el-button>
-      <a href="https://panjiachen.github.io/vue-element-admin-site/feature/component/excel.html" target="_blank" style="margin-left:15px;">
+      <!-- 文档地址 -->
+      <a href="h " target="_blank" style="margin-left:15px;">
         <el-tag type="info">Documentation</el-tag>
       </a>
     </div>
 
+    <!-- 表格内容 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="Loading..." border fit highlight-current-row>
       <el-table-column align="center" label="Id" width="95">
         <template slot-scope="scope">
@@ -45,8 +51,8 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/article'
-import { parseTime } from '@/utils'
+import { fetchList } from '@/api/article' // 获取列表
+import { parseTime } from '@/utils' // 时间转换
 // options components
 import FilenameOption from './components/FilenameOption'
 import AutoWidthOption from './components/AutoWidthOption'
@@ -60,15 +66,20 @@ export default {
       list: null,
       listLoading: true,
       downloadLoading: false,
+      // 文件名称
       filename: '',
+      // 自动宽度
       autoWidth: true,
+      // 导出类型
       bookType: 'xlsx'
     }
   },
+  // 实例创建完成执行函数
   created() {
     this.fetchData()
   },
   methods: {
+    // 获取列表数据
     fetchData() {
       this.listLoading = true
       fetchList().then(response => {
@@ -76,13 +87,18 @@ export default {
         this.listLoading = false
       })
     },
+    // 下载处理
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
+        // Excel头部
         const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date']
+        // 过滤值处理
         const filterVal = ['id', 'title', 'author', 'pageviews', 'display_time']
         const list = this.list
+        // 格式化数据
         const data = this.formatJson(filterVal, list)
+        // 导出
         excel.export_json_to_excel({
           header: tHeader,
           data,
@@ -93,6 +109,7 @@ export default {
         this.downloadLoading = false
       })
     },
+    // 数据json格式化
     formatJson(filterVal, jsonData) {
       return jsonData.map(v => filterVal.map(j => {
         if (j === 'timestamp') {
