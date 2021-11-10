@@ -17,8 +17,6 @@
       <markdown-editor v-model="content1" height="300px" />
     </div> -->
 
-
-
     <!-- <div class="editor-container">
       <el-tag class="tag-title">
         定制工具栏:
@@ -53,7 +51,7 @@
 </template>
 
 <script>
-import MarkdownEditor from '@/components/MarkdownEditor'  // 导入markdown编辑组件
+import MarkdownEditor from '@/components/MarkdownEditor' // 导入markdown编辑组件
 
 // 测试数据
 const content = `

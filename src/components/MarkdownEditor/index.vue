@@ -28,22 +28,22 @@ export default {
         return 'markdown-editor-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '')
       }
     },
-    options: {         // 创建tui-editor初始化参数
+    options: { // 创建tui-editor初始化参数
       type: Object,
       default() {
         return defaultOptions
       }
     },
-    mode: {            // 默认模式为markdown格式
+    mode: { // 默认模式为markdown格式
       type: String,
       default: 'markdown'
     },
-    height: {          // 高度
+    height: { // 高度
       type: String,
       required: false, // 是否必须设置
       default: '300px' // 默认高度
     },
-    language: {        // 语言
+    language: { // 语言
       type: String,
       required: false, // 是否必须设置
       default: 'en_US' // https://github.com/nhnent/tui.editor/tree/master/src/js/langs
@@ -116,7 +116,7 @@ export default {
         // 绑定的编辑器id
         el: document.getElementById(this.id),
         // 设置初始化参数
-        ...this.editorOptions,
+        ...this.editorOptions
         //  codeBlockLanguages: ['ruby', 'PHP', 'javascript'],
       })
       // 判断当前value是否为空

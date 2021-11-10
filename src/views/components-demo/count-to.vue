@@ -1,7 +1,7 @@
 <template>
   <div class="components-container">
     <aside>
-      <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank">countTo-component</a>
+      <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank">计数到组件</a>
     </aside>
     <count-to
       ref="example"
@@ -16,32 +16,32 @@
       class="example"
     />
     <div style="margin-left: 25%;margin-top: 40px;">
-      <label class="label" for="startValInput">startVal:
+      <label class="label" for="startValInput">起始值:
         <input v-model.number="setStartVal" type="number" name="startValInput">
       </label>
-      <label class="label" for="endValInput">endVal:
+      <label class="label" for="endValInput">结束值:
         <input v-model.number="setEndVal" type="number" name="endVaInput">
       </label>
-      <label class="label" for="durationInput">duration:
+      <label class="label" for="durationInput">时间:
         <input v-model.number="setDuration" type="number" name="durationInput">
       </label>
       <div class="startBtn example-btn" @click="start">
-        Start
+        开始
       </div>
       <div class="pause-resume-btn example-btn" @click="pauseResume">
-        pause/resume
+        暂停/恢复
       </div>
       <br>
-      <label class="label" for="decimalsInput">decimals:
+      <label class="label" for="decimalsInput">小数点:
         <input v-model.number="setDecimals" type="number" name="decimalsInput">
       </label>
-      <label class="label" for="separatorInput">separator:
+      <label class="label" for="separatorInput">分隔器:
         <input v-model="setSeparator" name="separatorInput">
       </label>
-      <label class="label" for="prefixInput">prefix:
+      <label class="label" for="prefixInput">前缀:
         <input v-model="setPrefix" name="prefixInput">
       </label>
-      <label class="label" for="suffixInput">suffix:
+      <label class="label" for="suffixInput">后缀:
         <input v-model="setSuffix" name="suffixInput">
       </label>
     </div>

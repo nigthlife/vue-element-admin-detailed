@@ -44,7 +44,7 @@
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-            <span>Material Design 的input</span>
+            <span>Material 设计 的input</span>
           </div>
           <div style="height:100px;">
             <el-form :model="demo" :rules="demoRules">
@@ -100,7 +100,7 @@
       <el-col :span="8">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-            <span>Share</span>
+            <span>分享</span>
           </div>
           <div class="component-item" style="height:420px;">
             <dropdown-menu :items="articleList" style="margin:0 auto;" title="系列文章" />

@@ -3,7 +3,7 @@
     <sticky :z-index="10" class-name="sub-navbar">
       <el-dropdown trigger="click">
         <el-button plain>
-          Platform<i class="el-icon-caret-bottom el-icon--right" />
+          平台<i class="el-icon-caret-bottom el-icon--right" />
         </el-button>
         <el-dropdown-menu slot="dropdown" class="no-border">
           <el-checkbox-group v-model="platforms" style="padding: 5px 15px;">
@@ -38,7 +38,8 @@
 
     <div class="components-container">
       <aside>
-        Sticky header, When the page is scrolled to the preset position will be sticky on the top.
+        <!-- Sticky header, When the page is scrolled to the preset position will be sticky on the top. -->
+        粘性页眉，当页面滚动到预设位置时会粘在顶部。
       </aside>
       <div>placeholder</div>
       <div>placeholder</div>
