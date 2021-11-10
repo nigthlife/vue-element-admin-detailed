@@ -246,6 +246,7 @@ export function getTime(type) {
 }
 
 /**
+ * 去除抖动
  * @param {Function} func
  * @param {number} wait
  * @param {boolean} immediate
